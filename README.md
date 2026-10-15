@@ -1,4 +1,4 @@
-# PortAsset CMMS v1.4 — Liên kết WO và nhật ký tháo/lắp (Public Safe)
+# PortAsset CMMS v1.4.1 — Truy lịch sử lên cẩu cấp 1 (Public Safe)
 
 Website tĩnh minh họa CMMS quản lý tài sản cẩu theo **Grid View → bấm dòng → Chi tiết toàn màn hình**. Mã tài sản, thiết bị, tên đơn vị, serial, Work Order, lịch sử và chi phí đều được giả lập. Không chứa ảnh chụp hay hồ sơ cẩu thật. Chạy trên GitHub Pages, không cần build.
 
@@ -58,3 +58,15 @@ Web chỉ lưu dữ liệu tại **localStorage**, không dùng server/database.
 - Đây là mockup kiểm tra luồng nghiệp vụ, chưa có phân quyền, kiểm soát trạng thái WO theo phê duyệt, audit log bất biến, chứng từ kho, hay đồng bộ nhiều người dùng. Không dùng làm hệ thống production.
 
 Phiên bản: **v1.4 – WO & Movement / Grid & Detail / Public Safe**.
+
+
+## Bản vá v1.4.1 — Truy lịch sử lên cẩu cấp 1
+
+Chỉ thay đổi cách liên kết và hiển thị cẩu cấp 1 trong **lịch sử tháo/lắp**, không bổ sung chức năng hay biểu mẫu:
+
+- Trong dòng thời gian HGT/Spreader và bảng nhật ký, hiển thị **Cẩu cấp 1** (ví dụ `CRANE-001 – Cẩu Demo 01`) cùng vị trí cấp 3, có thể bấm mã cẩu để xem hồ sơ.
+- Lắp/tháo: truy từ vị trí giao dịch lên đúng cẩu cha. Gửi sửa chữa/hoàn tất: truy cẩu lắp gần nhất **trước thời điểm sự kiện** (không nhầm cẩu đang lắp bây giờ). Thiết bị chưa từng lắp cẩu hiển thị `Chưa có cẩu liên kết`.
+- Các giao dịch mới (kể cả phát sinh trong WO) lưu thêm `craneId`, `craneCode`, `craneName` tại thời điểm giao dịch, để lịch sử không thay đổi khi hoán đổi cẩu. Dữ liệu cũ từ v1.4 vẫn đọc được theo cây vị trí hiện có.
+- Giữ nguyên khóa localStorage của v1.4; không xóa dữ liệu đang có. Đồng bộ lại nhãn phiên bản 1.4.1.
+
+Để cập nhật GitHub Pages: giải nén 5 tệp ZIP và ghi đè tại root repository, sau đó Commit.

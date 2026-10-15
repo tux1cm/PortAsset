@@ -145,3 +145,23 @@ body{font-size:13px;background:var(--bg)}
 .replacement-cost-box .form-hint{margin-top:8px;line-height:1.5}
 .replacement-cost-box .form-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 @media(max-width:720px){.replacement-cost-box .form-grid{grid-template-columns:1fr}}
+
+/* v1.5.0 — Operating meters. Two-level meter log inspired by the user's CMMS screenshot. */
+.meter-panel{display:flex;flex-direction:column;gap:13px;min-height:200px}
+.meter-intro{line-height:1.55;color:#55718e;background:#eef6fe;border:1px solid #d5e6f7;border-radius:7px;padding:13px 15px;font-size:12px}
+.meter-intro b{color:#174d7d}
+.meter-asset-picker{display:flex;flex-direction:column;gap:7px;max-width:700px;font-size:12px;font-weight:700;color:#335b85}
+.meter-def-header,.meter-reading-header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#145181}
+.meter-reading-header h3{margin:0;display:flex;align-items:center;gap:8px;color:#15578d;font-size:15px}
+.meter-reading-header small{display:block;font-size:11px;color:#8295a9;margin-top:6px;font-weight:400}
+.meter-list-scroll{max-width:100%;overflow:auto;border:1px solid #dbe6f2;border-radius:7px}
+.meter-list-scroll .data-table{width:100%;min-width:650px;margin:0}
+.meter-list-scroll .data-table tr.meter-selected{background:#eaf5ff}
+.meter-select-btn{border:0;background:transparent;color:#0062ab;font-weight:800;cursor:pointer;text-align:left;text-decoration:underline;padding:6px}
+.meter-total-box{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.meter-total-box>div{border:1px solid #d3e4f5;background:#f4f9ff;padding:16px 17px;border-radius:7px}
+.meter-total-box small{display:block;font-size:11px;color:#7189a2;margin-bottom:8px}
+.meter-total-box strong{display:block;font-size:21px;color:#0a538f;font-weight:800}
+.meter-total-box strong span{font-size:12px;font-weight:600}
+.meter-total-box strong.meter-datetime{font-size:15px}
+@media(max-width:700px){.meter-total-box{grid-template-columns:1fr}.meter-def-header .btn,.meter-reading-header .btn{flex-shrink:0}}
